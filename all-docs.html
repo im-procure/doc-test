@@ -1,0 +1,34 @@
+<!-- all-docs.html -->
+---
+layout: default
+title: 一覧
+---
+
+<h1>ドキュメント一覧</h1>
+
+<!-- フィルタ入力欄 -->
+<input type="text" id="tag-filter" placeholder="タグで絞り込み (例: clm 設計)" />
+
+<ul id="doc-list">
+  {% assign docs = site.pages | where_exp: "item", "item.tags" %}
+  {% for doc in docs %}
+    <li data-tags="{{ doc.tags | join: ' ' }}">
+      <a href="{{ doc.url }}">{{ doc.title }}</a>
+      <small>[{{ doc.tags | join: ', ' }}]</small>
+    </li>
+  {% endfor %}
+</ul>
+
+<script>
+  const input = document.getElementById('tag-filter');
+  const list = document.getElementById('doc-list').getElementsByTagName('li');
+
+  input.addEventListener('input', function () {
+    const keywords = this.value.toLowerCase().split(/\s+/).filter(Boolean);
+    Array.from(list).forEach(li => {
+      const tags = li.dataset.tags.toLowerCase();
+      const matches = keywords.every(k => tags.includes(k));
+      li.style.display = matches ? '' : 'none';
+    });
+  });
+</script>
