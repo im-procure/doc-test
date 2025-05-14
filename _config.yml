@@ -1,6 +1,6 @@
 title: 社内ドキュメントサイト
 description: 社内で管理するサービス設計・要件ドキュメント
-baseurl: ""  # 例: "/docs-site" のようにGitHub Pagesでサブパスを使うなら設定
+baseurl: "/docs-site"  # 例: "/docs-site" のようにGitHub Pagesでサブパスを使うなら設定
 url: "https://<your-username>.github.io"  # あなたのGitHub Pages URL
 
 # Markdownの処理
