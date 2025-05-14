@@ -1,6 +1,5 @@
 title: 社内ドキュメントサイト
 description: 社内で管理するサービス設計・要件ドキュメント
-baseurl: "/doc-test"  # 例: "/docs-site" のようにGitHub Pagesでサブパスを使うなら設定
 
 # Markdownの処理
 markdown: kramdown
